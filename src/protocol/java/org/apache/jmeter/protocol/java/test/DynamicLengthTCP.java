@@ -69,7 +69,7 @@ public class DynamicLengthTCP extends AbstractJavaSamplerClient implements Seria
     }
 
     /**
-     * ÃÊ±â ÇÑ¹ø¸¸ È£ÃâµÊ . ·Î±×ÀÎ°ú °°ÀÌ ÇÑ¹ø¸¸ È£ÃâµÇ´Â ¾÷¹« ¼öÇà
+     * ï¿½Ê±ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ . ï¿½Î±ï¿½ï¿½Î°ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
      * Do any initialization required by this client.
      *
      * There is none, as it is done in runTest() in order to be able to vary the
@@ -88,7 +88,7 @@ public class DynamicLengthTCP extends AbstractJavaSamplerClient implements Seria
     }
 
     /**
-     * GUI È­¸éÀÇ Parameter °ª Ç¥½Ã
+     * GUI È­ï¿½ï¿½ï¿½ï¿½ Parameter ï¿½ï¿½ Ç¥ï¿½ï¿½
      * Provide a list of parameters which this test supports. Any parameter
      * names and associated values returned by this method will appear in the
      * GUI by default so the user doesn't have to remember the exact names. The
@@ -117,7 +117,7 @@ public class DynamicLengthTCP extends AbstractJavaSamplerClient implements Seria
     }
 
     /**
-     * ¹İº¹µÇ´Â ¾÷¹« ¼öÇà. 
+     * ï¿½İºï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½. 
      * Perform a single sample.<br>
      * In this case, this method will simply sleep for some amount of time.
      *
@@ -193,6 +193,7 @@ public class DynamicLengthTCP extends AbstractJavaSamplerClient implements Seria
                 
                 //body size
                 int sizeBody = getBodySize(resHeader);
+                sizeBody = sizeBody + 1;    // ë‚´ íŒ¨í‚·ì€ Header-protocol-data êµ¬ì¡°ì¸ë° ë‚˜ëŠ” Headerê°€ ë‚˜íƒ€ë‚´ëŠ” ê°’ì´ protocolì„ ì œì™¸í•œ dataì˜ ê¸¸ì´ì´ë¯€ë¡œ protocol(1ë°”ì´íŠ¸)ë§Œí¼ ì¶”ê°€í•´ì¤Œ..
                 
                 byte[] res = new byte[sizeHeader + sizeBody];
                 System.arraycopy(resHeader, 0, res, 0, sizeHeader);
